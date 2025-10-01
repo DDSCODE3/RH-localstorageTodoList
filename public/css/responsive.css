@@ -1,0 +1,211 @@
+/* ========================= */
+/* ریسپانسیو برای موبایل و تبلت */
+/* ========================= */
+
+/* حالت تبلت (max-width: 992px) */
+@media (max-width: 992px) {
+    .header-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .sort-card,
+    .Buttons_container {
+        width: 100%;
+    }
+
+    .sort-button,
+    .open-modal-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .todos-container {
+        grid-template-columns: 1fr 1fr;
+        /* نمایش دو ستونه */
+        gap: 1rem;
+    }
+}
+
+/* حالت تبلت (بین 577px تا 992px) */
+@media (max-width: 992px) and (min-width: 577px) {
+    .header-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .sort-card,
+    .Buttons_container {
+        width: auto;
+        /* دکمه‌ها کل عرض نگیرن */
+    }
+
+    .sort-button,
+    .open-modal-button {
+        width: auto;
+        /* دکمه‌ها به اندازه محتوای خودشون */
+        padding: .5rem 1rem;
+    }
+
+    .todos-container {
+        grid-template-columns: 1fr 1fr;
+        /* نمایش دو ستونه در تبلت */
+        gap: 1rem;
+    }
+}
+
+/* ========================= */
+/* حالت موبایل (max-width: 576px) */
+/* ========================= */
+@media (max-width: 576px) {
+
+    /* تیتر */
+    .title h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* دکمه‌های بالای صفحه */
+    .header-buttons {
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    .sort-card,
+    .Buttons_container {
+        width: 100%;
+    }
+
+    .sort-button,
+    .open-modal-button {
+        width: 100%;
+        /* در موبایل کشیده بشن */
+        justify-content: center;
+    }
+
+    /* لیست تسک‌ها */
+    .todos-container {
+        grid-template-columns: 1fr;
+        /* همه یک ستونه */
+    }
+
+    .todo {
+        padding: .75rem;
+        font-size: .9rem;
+    }
+
+    .todo-buttons {
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    /* مودال */
+    .modal-screen {
+        display: flex;
+        align-items: center;
+        /* وسط عمودی */
+        justify-content: center;
+        /* وسط افقی */
+        padding: 1rem;
+        /* کمی فاصله از لبه‌ها */
+    }
+
+    .modal {
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    .modal header span {
+        font-size: 1rem;
+    }
+
+    .modal footer {
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    .modal footer button {
+        width: 100%;
+        /* دکمه‌ها کل عرض مودال */
+        padding: .75rem;
+        /* لمس راحت‌تر */
+        font-size: 1rem;
+        /* فونت خواناتر */
+        border-radius: 8px;
+        /* ظاهر مدرن */
+    }
+}
+
+
+.title h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #4ade80;
+    /* کرسر سبز */
+    width: 0;
+    margin: 0 auto;
+    animation: typing 4s steps(30, end) forwards, blink .75s step-end infinite;
+}
+
+/* افکت تایپ شدن */
+@keyframes typing {
+    from {
+        width: 0;
+        opacity: 0.2;
+    }
+
+    to {
+        width: 24ch;
+        /* تعداد کاراکترهای متن */
+        opacity: 1;
+    }
+}
+
+/* چشمک‌زدن کرسر */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.title h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #4ade80;
+    text-shadow: 0 0 5px #4ade80, 0 0 15px #22c55e, 0 0 25px #16a34a;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #22c55e;
+    /* کرسر سبز روشن */
+    width: 0;
+    margin: 0 auto;
+    animation: typing 4s steps(30, end) forwards, blink .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+        opacity: 0.2;
+    }
+
+    to {
+        width: 24ch;
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
