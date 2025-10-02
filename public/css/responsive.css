@@ -244,68 +244,86 @@
 
 
 /* ---- Fix global box sizing + prevent horizontal overflow ---- */
-html, body {
-  box-sizing: border-box;
-  width: 100%;
-  overflow-x: hidden; /* جلوگیری از اسکرول افقی که باعث نیاز به زوم می‌شه */
+html,
+body {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+    /* جلوگیری از اسکرول افقی که باعث نیاز به زوم می‌شه */
 }
-*, *::before, *::after { box-sizing: inherit; }
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
 
 /* Wrapper و کانتینرها حتماً padding داشته باشن و از لبه نزنن */
 .wrapper {
-  max-width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* تصاویر و SVG ها اندازه‌شون به ویوپورت تابع باشه */
-img, svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* متن‌ها و ورودی‌ها طوری شکست بخورن که از عرض بیرون نزنه */
 .todo-title,
 .input,
 .sort-button span,
-.button, /* اگه دکمه‌ها متن طولانی دارن */
+.button,
+/* اگه دکمه‌ها متن طولانی دارن */
 .todos-container {
-  word-break: break-word;
-  overflow-wrap: anywhere;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 /* دکمه‌ها از min-width پیش‌فرض بزرگ جلوگیری کنن */
 button {
-  min-width: 0;
+    min-width: 0;
 }
 
 /* کانتینر تسک‌ها: از grid واکنش‌گرا استفاده کن که به صورت خودکار سلول‌ها رو جمع کنه */
-.todos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  width: 100%;
-}
+
 
 /* مودال: اندازه با ویوپورت تنظیم بشه (نه عدد ثابت که روی موبایل از لبه بزنه) */
 .modal {
-  width: min(420px, 92vw); /* حداکثر 420px یا 92% از عرض ویوپورت */
-  max-width: 92vw;
-  box-sizing: border-box;
+    width: min(420px, 92vw);
+    /* حداکثر 420px یا 92% از عرض ویوپورت */
+    max-width: 92vw;
+    box-sizing: border-box;
 }
 
 /* SVG های داخل دکمه‌ها کوچک و منعطف شوند */
-.size-4, .size-6 {
-  width: 1.25em;
-  height: 1.25em;
-  vertical-align: middle;
+.size-4,
+.size-6 {
+    width: 1.25em;
+    height: 1.25em;
+    vertical-align: middle;
 }
 
 /* موبایل دقیق (اختیاری تنظیمات اضافی) */
 @media (max-width: 576px) {
-  .modal { width: min(400px, 95vw); }
-  .todo { padding: .75rem; font-size: .95rem; }
-  .open-modal-button, .sort-button { white-space: normal; } /* نذار متن یک خط خیلی وسیع بشه */
+    .modal {
+        width: min(400px, 95vw);
+    }
+
+    .todo {
+        padding: .75rem;
+        font-size: .95rem;
+    }
+
+    .open-modal-button,
+    .sort-button {
+        white-space: normal;
+    }
+
+    /* نذار متن یک خط خیلی وسیع بشه */
 }
 
