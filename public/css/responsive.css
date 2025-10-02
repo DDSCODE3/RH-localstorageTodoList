@@ -204,6 +204,38 @@
     }
 }
 
+/* موبایل (max-width: 576px) */
+@media (max-width: 576px) {
+  .modal-screen {
+         position: absolute;
+    display: flex;
+    align-items: center;   /* وسط عمودی */
+    justify-content: center; /* وسط افقی */
+    padding: 1rem; /* کمی فاصله از لبه‌ها */
+  }
+
+  .modal {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .modal footer {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .modal footer button {
+    width: 100%;
+    padding: .75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+}
+
+
 @keyframes blink {
     50% {
         border-color: transparent;
