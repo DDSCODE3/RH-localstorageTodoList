@@ -57,18 +57,32 @@
     }
 }
 
+/* حالت دسکتاپ (بزرگ‌تر از 993px) */
+@media (min-width: 993px) {
+
+    .sort-card,
+    .sort-button {
+        width: auto;
+        white-space: nowrap;
+        /* متن نشکنه */
+    }
+
+    .sort-button span {
+        display: inline-block;
+        margin-left: .5rem;
+        /* فاصله بین متن و آیکون */
+    }
+}
+
 /* ========================= */
 /* حالت موبایل (max-width: 576px) */
 /* ========================= */
 @media (max-width: 576px) {
-
-    /* تیتر */
     .title h1 {
         font-size: 1.2rem;
         text-align: center;
     }
 
-    /* دکمه‌های بالای صفحه */
     .header-buttons {
         flex-direction: column;
         gap: .75rem;
@@ -82,11 +96,10 @@
     .sort-button,
     .open-modal-button {
         width: 100%;
-        /* در موبایل کشیده بشن */
+        /* دکمه‌ها کشیده بشن */
         justify-content: center;
     }
 
-    /* لیست تسک‌ها */
     .todos-container {
         grid-template-columns: 1fr;
         /* همه یک ستونه */
@@ -102,20 +115,15 @@
         gap: .5rem;
     }
 
-    /* مودال */
     .modal-screen {
         display: flex;
         align-items: center;
-        /* وسط عمودی */
         justify-content: center;
-        /* وسط افقی */
         padding: 1rem;
-        /* کمی فاصله از لبه‌ها */
     }
 
     .modal {
-        width: 90%;
-        max-width: 400px;
+        width: min(400px, 95vw);
         margin: 0 auto;
         border-radius: 10px;
         padding: 1rem;
@@ -133,51 +141,21 @@
 
     .modal footer button {
         width: 100%;
-        /* دکمه‌ها کل عرض مودال */
         padding: .75rem;
-        /* لمس راحت‌تر */
         font-size: 1rem;
-        /* فونت خواناتر */
         border-radius: 8px;
-        /* ظاهر مدرن */
+    }
+
+    .open-modal-button,
+    .sort-button {
+        white-space: normal;
+        /* متن طولانی بشکنه */
     }
 }
 
-
-.title h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid #4ade80;
-    /* کرسر سبز */
-    width: 0;
-    margin: 0 auto;
-    animation: typing 4s steps(30, end) forwards, blink .75s step-end infinite;
-}
-
-/* افکت تایپ شدن */
-@keyframes typing {
-    from {
-        width: 0;
-        opacity: 0.2;
-    }
-
-    to {
-        width: 24ch;
-        /* تعداد کاراکترهای متن */
-        opacity: 1;
-    }
-}
-
-/* چشمک‌زدن کرسر */
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-
+/* ========================= */
+/* افکت تایپینگ برای عنوان */
+/* ========================= */
 .title h1 {
     font-size: 2rem;
     font-weight: 800;
@@ -204,52 +182,20 @@
     }
 }
 
-/* موبایل (max-width: 576px) */
-@media (max-width: 576px) {
-  .modal-screen {
-         position: absolute;
-    display: flex;
-    align-items: center;   /* وسط عمودی */
-    justify-content: center; /* وسط افقی */
-    padding: 1rem; /* کمی فاصله از لبه‌ها */
-  }
-
-  .modal {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
-  }
-
-  .modal footer {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
-  }
-
-  .modal footer button {
-    width: 100%;
-    padding: .75rem;
-    font-size: 1rem;
-    border-radius: 8px;
-  }
-}
-
-
 @keyframes blink {
     50% {
         border-color: transparent;
     }
 }
 
-
-/* ---- Fix global box sizing + prevent horizontal overflow ---- */
+/* ========================= */
+/* اصلاحات کلی برای جلوگیری از اسکرول افقی */
+/* ========================= */
 html,
 body {
     box-sizing: border-box;
     width: 100%;
     overflow-x: hidden;
-    /* جلوگیری از اسکرول افقی که باعث نیاز به زوم می‌شه */
 }
 
 *,
@@ -258,14 +204,12 @@ body {
     box-sizing: inherit;
 }
 
-/* Wrapper و کانتینرها حتماً padding داشته باشن و از لبه نزنن */
 .wrapper {
     max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-/* تصاویر و SVG ها اندازه‌شون به ویوپورت تابع باشه */
 img,
 svg {
     max-width: 100%;
@@ -273,57 +217,28 @@ svg {
     display: block;
 }
 
-/* متن‌ها و ورودی‌ها طوری شکست بخورن که از عرض بیرون نزنه */
 .todo-title,
 .input,
 .sort-button span,
 .button,
-/* اگه دکمه‌ها متن طولانی دارن */
 .todos-container {
     word-break: break-word;
     overflow-wrap: anywhere;
 }
 
-/* دکمه‌ها از min-width پیش‌فرض بزرگ جلوگیری کنن */
 button {
     min-width: 0;
 }
 
-/* کانتینر تسک‌ها: از grid واکنش‌گرا استفاده کن که به صورت خودکار سلول‌ها رو جمع کنه */
-
-
-/* مودال: اندازه با ویوپورت تنظیم بشه (نه عدد ثابت که روی موبایل از لبه بزنه) */
 .modal {
     width: min(420px, 92vw);
-    /* حداکثر 420px یا 92% از عرض ویوپورت */
     max-width: 92vw;
     box-sizing: border-box;
 }
 
-/* SVG های داخل دکمه‌ها کوچک و منعطف شوند */
 .size-4,
 .size-6 {
     width: 1.25em;
     height: 1.25em;
     vertical-align: middle;
 }
-
-/* موبایل دقیق (اختیاری تنظیمات اضافی) */
-@media (max-width: 576px) {
-    .modal {
-        width: min(400px, 95vw);
-    }
-
-    .todo {
-        padding: .75rem;
-        font-size: .95rem;
-    }
-
-    .open-modal-button,
-    .sort-button {
-        white-space: normal;
-    }
-
-    /* نذار متن یک خط خیلی وسیع بشه */
-}
-
